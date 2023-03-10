@@ -5,9 +5,9 @@ pragma solidity ^0.8.12;
 /* solhint-disable no-inline-assembly */
 /* solhint-disable reason-string */
 
-import "@eth-infinitism/interfaces/IAccount.sol";
-import "@eth-infinitism/interfaces/IEntryPoint.sol";
-import "@eth-infinitism/core/Helpers.sol";
+import "@eth-infinitism/account-abstraction/interfaces/IAccount.sol";
+import "@eth-infinitism/account-abstraction/interfaces/IEntryPoint.sol";
+import "@eth-infinitism/account-abstraction/core/Helpers.sol";
 import "@openzeppelin/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/proxy/utils/Initializable.sol";
 import "@openzeppelin/proxy/utils/UUPSUpgradeable.sol";
