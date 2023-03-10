@@ -49,7 +49,7 @@ contract ExampleAccount is IAccount, UUPSUpgradeable, Initializable {
     }
 
     function validateUserOp(UserOperation calldata userOp, bytes32, uint256 missingAccountFunds)
-    external override virtual returns (uint256 validationData) {
+    external override virtual returns (uint256) {
         _requireFromEntryPoint();
         
         bytes32 hash = keccak256(
@@ -77,7 +77,7 @@ contract ExampleAccount is IAccount, UUPSUpgradeable, Initializable {
 
         _payPrefund(missingAccountFunds);
 
-        validationData = 0;
+        return 0;
     }
 
     /**
