@@ -2,7 +2,7 @@
 
 Taken from this transaction: https://goerli.etherscan.io/tx/0xbee50381e09b1fbf21667255ae0c70f02aa5fe8e8167fe0a5253f7dd9a61d138
 
-Note the extra zero word at `ops[0]@0x160`. Under a standard ABI encoding, zero length dynamic fields do not have any space allocated to them. This extra word changes the result of `UserOperation.pack()`.
+Note the extra zero word at `ops[0]@0x180`. Under a standard ABI encoding, zero length dynamic fields do not have any space allocated to them. This extra word changes the result of `UserOperation.pack()`.
 
 ```
 Method selector:  1fad948c
