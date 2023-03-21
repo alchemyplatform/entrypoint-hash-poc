@@ -8,9 +8,9 @@ pragma solidity ^0.8.12;
 import "@eth-infinitism/account-abstraction/interfaces/IAccount.sol";
 import "@eth-infinitism/account-abstraction/interfaces/IEntryPoint.sol";
 import "@eth-infinitism/account-abstraction/core/Helpers.sol";
-import "@openzeppelin/utils/cryptography/ECDSA.sol";
-import "@openzeppelin/proxy/utils/Initializable.sol";
-import "@openzeppelin/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 
 contract ExampleAccount is IAccount, UUPSUpgradeable, Initializable {
     using UserOperationLib for UserOperation;

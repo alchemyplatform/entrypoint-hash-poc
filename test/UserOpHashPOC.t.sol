@@ -6,8 +6,8 @@ import {EntryPoint} from "@eth-infinitism/account-abstraction/core/EntryPoint.so
 import {UserOperation, UserOperationLib} from "@eth-infinitism/account-abstraction/interfaces/UserOperation.sol";
 import {ExampleAccountFactory} from "../src/ExampleAccountFactory.sol";
 import {ExampleAccount} from "../src/ExampleAccount.sol";
-import {ERC1967Proxy} from "@openzeppelin/proxy/ERC1967/ERC1967Proxy.sol";
-import {ECDSA} from "@openzeppelin/utils/cryptography/ECDSA.sol";
+import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
+import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 
 contract UserOpHashPOC is Test {
@@ -155,11 +155,11 @@ contract UserOpHashPOC is Test {
         // args@0x320: args[0]@0x2e0: ops[0]@0x2a0: 1b00000000000000000000000000000000000000000000000000000000000000 // signature
 
         bytes32 expectedUserOpHash = entryPoint.getUserOpHash(uo);
-        assertEq(expectedUserOpHash, 0xf8d19bb1ac52479d3bc953d8768a2eef2ce0051d55d5bafb34bcee8ed9c4da09);
-        bytes32 actualUserOpHash = 0xfd3ec4e5d5568b2b0ba2d87f1445217558d870c0dfa9a48b27f9c31dcda5ae16;
+        assertEq(expectedUserOpHash, 0x933afb3f689b0a185cb97575feede16a3c0ff7a9c4cdd0fa64f4bb2ee203d509);
+        bytes32 actualUserOpHash = 0x0eb8b6ea24f87db9e32097890a7bc89ab47d46f24b17c9c8606c2bc81a305eb4;
 
         vm.expectEmit(true, true, true, true, address(entryPoint));
-        emit UserOperationEvent(/*userOpHash*/ actualUserOpHash, /*sender*/ 0x308c46eF8d5DC1D454dAc89f2Bc7310a09a0C5Db, /*paymaster*/ address(0), /*nonce*/ 0, /*success*/ true, /*actualGasCost*/ 211206000000000, /*actualGasUsed*/ 211206);
+        emit UserOperationEvent(/*userOpHash*/ actualUserOpHash, /*sender*/ 0x6c2cEC8B9b46Af62F111898ACfF979049d9aAFC1, /*paymaster*/ address(0), /*nonce*/ 0, /*success*/ true, /*actualGasCost*/ 211206000000000, /*actualGasUsed*/ 211206);
         
         // Call handleOps in EntryPoint
         (bool success,) = address(entryPoint).call(callData);
